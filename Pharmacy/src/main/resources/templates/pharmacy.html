@@ -5,19 +5,39 @@
     <title>Farmacia IBM</title>
 </head>
 <body>
-<div>
+<div name="with">
     <table>
         <thread>
-            <td>Name </td>
-            <td> Price</td>
+            <td>Name</td>
+            <td>Price</td>
+            <td>Category</td>
         </thread>
         <tbody>
-        <tr th:each="pharmacy: ${pharmacyList}">
-            <td th:text="${pharmacy.getName()}"/>
-            <td th:text="${pharmacy.getPrice()}"/>
+        <tr th:each="pharmacy: ${pharmacyList}" th:if="${pharmacy.category == 'fara reteta'}">
+            <td th:text="${pharmacy.name}"/>
+            <td th:text="${pharmacy.price}"/>
+            <td th:text="${pharmacy.category}"/>
         </tr>
         </tbody>
     </table>
 </div>
+<br>
+<div name="without">
+    <table>
+        <thread>
+            <td>Name</td>
+            <td>Price</td>
+            <td>Category</td>
+        </thread>
+        <tbody>
+        <tr th:each="pharmacy: ${pharmacyList}" th:if="${pharmacy.category == 'cu reteta'}">
+            <td th:text="${pharmacy.name}"/>
+            <td th:text="${pharmacy.price}"/>
+            <td th:text="${pharmacy.category}"/>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
 </body>
 </html>
