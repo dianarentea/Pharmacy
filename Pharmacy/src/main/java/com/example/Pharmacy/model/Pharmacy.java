@@ -4,10 +4,10 @@ public class Pharmacy {
 
     private String name;
 
-    private int price;
+    private double price;
 
 
-    public Pharmacy(String name, int price) {
+    public Pharmacy(String name, double price) {
         this.name = name;
         this.price = price;
     }
@@ -20,11 +20,11 @@ public class Pharmacy {
         this.name = name;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 }
