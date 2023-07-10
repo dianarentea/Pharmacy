@@ -2,11 +2,11 @@ package com.example.Pharmacy.model;
 
 public class Pill {
     private String name;
-    private int price;
+    private double price;
     private int stockNumber;
     private String description;
 
-    public Pill(String name, int price, int stockNumber, String description) {
+    public Pill(String name, double price, int stockNumber, String description) {
         this.name = name;
         this.price = price;
         this.stockNumber = stockNumber;
@@ -21,7 +21,7 @@ public class Pill {
         this.name = name;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
