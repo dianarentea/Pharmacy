@@ -5,6 +5,23 @@
     <title>Pill</title>
 </head>
 <body>
-
+<div>
+    <table>
+        <thead>
+        <td>Name</td>
+        <td>Price</td>
+        <td>Stock</td>
+        <td>Description</td>
+        </thead>
+        <tbody>
+        <tr th:each="pill:${pillList}">
+            <td th:text="${pill.getName()}"/>
+            <td th:text="${pill.getPrice()}"/>
+            <td th:text="${pill.getStockNumber()}"/>
+            <td th:text="${pill.getDescription()}"/>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
