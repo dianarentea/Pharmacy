@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Farmacia IBM</title>
+</head>
+<body>
+<div>
+    <table>
+        <thread>
+            <td>Name </td>
+            <td> Price</td>
+        </thread>
+        <tbody>
+        <tr th:each="pharmacy: ${pharmacyList}">
+            <td th:text="${pharmacy.getName()}"/>
+            <td th:text="${pharmacy.getPrice()}"/>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
