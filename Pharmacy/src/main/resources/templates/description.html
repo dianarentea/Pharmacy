@@ -16,6 +16,7 @@
                 <th scope="col">Price</th>
                 <th scope="col">Stock</th>
                 <th scope="col">Description</th>
+                <th scope="col">Pharmacy name</th>
             </tr>
             </thead>
             <tbody>
@@ -24,6 +25,7 @@
                 <td th:text="${pill.getPrice()}"/>
                 <td th:text="${pill.getStockNumber()}"/>
                 <td th:text="${pill.getDescription()}"/>
+                <td th:text="${pill.getPharmacy().getName()}"/>
             </tr>
             </tbody>
         </table>

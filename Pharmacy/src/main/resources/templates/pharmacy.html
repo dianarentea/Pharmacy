@@ -11,35 +11,14 @@
     <table class="table table-striped table-bordered">
         <thead>
         <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Price</th>
-            <th scope="col">Category</th>
+            <th scope="col">Name of pharmacy</th>
+
         </tr>
         </thead>
         <tbody>
-        <tr th:each="pharmacy: ${pharmacyList}" th:if="${pharmacy.category == 'fara reteta'}">
+        <tr th:each="pharmacy: ${pharmacyList}" >
             <td th:text="${pharmacy.name}"/>
-            <td th:text="${pharmacy.price}"/>
-            <td th:text="${pharmacy.category}"/>
-        </tr>
-        </tbody>
-    </table>
-</div>
-<br>
-<div name="without" class="container-fluid row col-8">
-    <table class="table table-striped table-bordered">
-        <thead>
-        <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Price</th>
-            <th scope="col">Category</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="pharmacy: ${pharmacyList}" th:if="${pharmacy.category == 'cu reteta'}">
-            <td th:text="${pharmacy.name}"/>
-            <td th:text="${pharmacy.price}"/>
-            <td th:text="${pharmacy.category}"/>
+
         </tr>
         </tbody>
     </table>

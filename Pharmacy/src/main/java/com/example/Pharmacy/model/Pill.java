@@ -6,11 +6,15 @@ public class Pill {
     private int stockNumber;
     private String description;
 
-    public Pill(String name, double price, int stockNumber, String description) {
+    Pharmacy pharmacy;
+
+
+    public Pill(String name, double price, int stockNumber, String description, Pharmacy pharmacy) {
         this.name = name;
         this.price = price;
         this.stockNumber = stockNumber;
         this.description = description;
+        this.pharmacy=pharmacy;
     }
 
     public String getName() {
@@ -25,7 +29,7 @@ public class Pill {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -44,4 +48,13 @@ public class Pill {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public Pharmacy getPharmacy() {
+        return pharmacy;
+    }
+
+    public void setPharmacy(Pharmacy pharmacy) {
+        this.pharmacy = pharmacy;
+    }
+
 }
