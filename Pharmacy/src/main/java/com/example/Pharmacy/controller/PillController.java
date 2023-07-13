@@ -5,13 +5,15 @@ import com.example.Pharmacy.model.Pill;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
 @Controller
 public class PillController {
 
-    @GetMapping(value="/description")
+    @GetMapping(value="/pill")
     public void description(Model model)
     {
         Pharmacy ph1= new Pharmacy("DrMax" );
@@ -26,5 +28,18 @@ public class PillController {
         List<Pill> pillList= List.of(p1, p2,p3,p4,p5,p6);
         System.out.println(p1.getPharmacy().getName());
         model.addAttribute("pillList", pillList);
+    }
+    @GetMapping(value="/pillForm")
+    public String getPillForm(Model model)
+    {
+        model.addAttribute("pill", new Pill());
+        return "pillForm";
+    }
+
+    @PostMapping(value="/addPill")
+    public String submitPill(@ModelAttribute("pill") Pill pill)
+    {
+        System.out.println(pill.toString());
+    return null;
     }
 }

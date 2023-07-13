@@ -8,6 +8,10 @@ public class Pill {
 
     Pharmacy pharmacy;
 
+    public Pill()
+    {
+
+    }
 
     public Pill(String name, double price, int stockNumber, String description, Pharmacy pharmacy) {
         this.name = name;
@@ -57,4 +61,14 @@ public class Pill {
         this.pharmacy = pharmacy;
     }
 
+    @Override
+    public String toString() {
+        return "Pill{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", stockNumber=" + stockNumber +
+                ", description='" + description + '\'' +
+                ", pharmacy=" + pharmacy +
+                '}';
+    }
 }
