@@ -43,6 +43,6 @@ public class PillController {
     public String submitPill(@ModelAttribute("pill") Pill pill)
     {
         System.out.println(pill.toString());
-        return null;
+        return "pillForm";
     }
 }
