@@ -1,16 +1,21 @@
 package com.example.Pharmacy.model;
 
-import java.util.List;
-
 public class Pharmacy {
 
     private String name;
 
-    List<Pill> pillList;
+    private double price;
 
+    private String category;
 
-    public Pharmacy(String name) {
+    public Pharmacy(String name, double price, String category) {
         this.name = name;
+        this.price = price;
+        this.category = category;
+    }
+
+    public Pharmacy() {
+
     }
 
     public String getName() {
@@ -21,6 +26,25 @@ public class Pharmacy {
         this.name = name;
     }
 
+    public double getPrice() {
+        return price;
+    }
 
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
 

@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -16,8 +17,10 @@ public class PillController {
     @GetMapping(value="/pill")
     public void description(Model model)
     {
-        Pharmacy ph1= new Pharmacy("DrMax" );
-        Pharmacy ph2= new Pharmacy("Catena");
+        Pharmacy ph1= new Pharmacy();
+        ph1.setName("Dr Max");
+        Pharmacy ph2= new Pharmacy();
+        ph2.setName("Catena");
 
         Pill p1=new Pill("Aspenter",12.5, 40,"tensiune arteriala",ph1);
         Pill p2=new Pill("Nurofen",20, 15,"dureri de cap",ph2);
@@ -40,6 +43,6 @@ public class PillController {
     public String submitPill(@ModelAttribute("pill") Pill pill)
     {
         System.out.println(pill.toString());
-    return null;
+        return null;
     }
 }

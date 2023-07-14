@@ -21,6 +21,8 @@ public class Pill {
         this.pharmacy=pharmacy;
     }
 
+
+
     public String getName() {
         return name;
     }

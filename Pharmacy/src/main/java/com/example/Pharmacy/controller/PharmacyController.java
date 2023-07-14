@@ -16,16 +16,22 @@ public class PharmacyController {
     @GetMapping(value = "/pharmacy")
 
     public String pharmacy(Model model){
-        Pharmacy p1= new Pharmacy("Catena" );
-        Pharmacy p2= new Pharmacy("Dr.Max");
-        Pharmacy p3= new Pharmacy("Sensiblu");
-        Pharmacy p4= new Pharmacy("Dona");
+        Pharmacy p1= new Pharmacy("Aspenter", 12.5, "fara reteta" );
+        Pharmacy p2= new Pharmacy("Nurofen", 20, "fara reteta");
+        Pharmacy p3= new Pharmacy("Augumentin", 22.93, "cu reteta");
+        Pharmacy p4= new Pharmacy("Strepsils", 27.50, "fara reteta");
+        Pharmacy p5= new Pharmacy("Dicarbocalm", 17, "cu reteta");
+        Pharmacy p6= new Pharmacy("Calcidin", 22.33, "fara reteta");
+        List<Pharmacy> pharmacyList= List.of(p1,p2,p3,p4,p5,p6);
 
-        List<Pharmacy> pharmacyList= List.of(p1,p2,p3,p4);
+        List<Pharmacy> sortedByCategory = pharmacyList.stream()
+                        .sorted(Comparator.comparing(Pharmacy::getCategory))
+                                .collect(Collectors.toList());
 
 
 
-        model.addAttribute("pharmacyList",pharmacyList);
+
+        model.addAttribute("pharmacyList",sortedByCategory);
 
 
         return "pharmacy";
