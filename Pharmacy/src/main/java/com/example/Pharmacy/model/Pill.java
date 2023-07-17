@@ -1,12 +1,27 @@
 package com.example.Pharmacy.model;
 
+import jakarta.persistence.*;
+
+
+@Entity
+@Table(name="t_pill")
 public class Pill {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(name="name")
     private String name;
+    @Column(name="price")
     private double price;
+    @Column(name="stockNumber")
     private int stockNumber;
+    @Column(name="description")
     private String description;
 
-    Pharmacy pharmacy;
+    @ManyToOne
+    @JoinColumn(name="id_pharmacy")
+    private Pharmacy pharmacy;
 
     public Pill()
     {}

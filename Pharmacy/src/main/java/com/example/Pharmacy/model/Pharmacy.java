@@ -1,7 +1,16 @@
 package com.example.Pharmacy.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="t_pharmacy")
 public class Pharmacy {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(name="name")
     private String name;
 
     public Pharmacy(String name) {
