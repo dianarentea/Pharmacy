@@ -18,21 +18,13 @@ public class PharmacyController {
     @GetMapping(value = "/pharmacy")
 
     public String pharmacy(Model model){
-        Pharmacy p1= new Pharmacy("Aspenter", 12.5, "fara reteta" );
-        Pharmacy p2= new Pharmacy("Nurofen", 20, "fara reteta");
-        Pharmacy p3= new Pharmacy("Augumentin", 22.93, "cu reteta");
-        Pharmacy p4= new Pharmacy("Strepsils", 27.50, "fara reteta");
-        Pharmacy p5= new Pharmacy("Dicarbocalm", 17, "cu reteta");
-        Pharmacy p6= new Pharmacy("Calcidin", 22.33, "fara reteta");
-        List<Pharmacy> pharmacyList= List.of(p1,p2,p3,p4,p5,p6);
+        Pharmacy p1= new Pharmacy("Dr Max");
+        Pharmacy p2= new Pharmacy("Catena");
+        Pharmacy p3= new Pharmacy("Dona");
+        Pharmacy p4= new Pharmacy("Sensiblu");
 
-        List<Pharmacy> sortedByCategory = pharmacyList.stream()
-                        .sorted(Comparator.comparing(Pharmacy::getCategory))
-                                .collect(Collectors.toList());
-
-
-        model.addAttribute("pharmacyList",sortedByCategory);
-
+        List<Pharmacy> pharmacyList= List.of(p1,p2,p3,p4);
+        model.addAttribute("pharmacyList",pharmacyList);
 
         return "pharmacy";
 
@@ -50,7 +42,7 @@ public class PharmacyController {
     public String submitPharmacy(@ModelAttribute("pharmacy") Pharmacy pharmacy)
     {
         System.out.println(pharmacy.toString());
-        return null;
+        return "pharmacyForm";
     }
 
 }
