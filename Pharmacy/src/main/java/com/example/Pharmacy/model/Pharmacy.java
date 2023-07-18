@@ -13,8 +13,7 @@ public class Pharmacy {
     @Column(name="name")
     private String name;
 
-    public Pharmacy(int id, String name) {
-        this.id=id;
+    public Pharmacy(String name) {
         this.name = name;
     }
 
@@ -28,19 +27,12 @@ public class Pharmacy {
         this.name = name;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     @Override
     public String toString() {
         return "Pharmacy{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
+
                 '}';
     }
 }
