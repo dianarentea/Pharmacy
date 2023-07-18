@@ -2,12 +2,11 @@ package com.example.Pharmacy.controller;
 
 import com.example.Pharmacy.model.Pharmacy;
 import com.example.Pharmacy.model.Pill;
+import com.example.Pharmacy.repository.PharmacyRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -15,21 +14,20 @@ import java.util.stream.Collectors;
 @Controller
 public class PharmacyController {
 
+    @Autowired
+    private PharmacyRepository pharmacyRepository;
     @GetMapping(value = "/pharmacy")
 
     public String pharmacy(Model model){
-        Pharmacy p1= new Pharmacy("Dr Max");
-        Pharmacy p2= new Pharmacy("Catena");
-        Pharmacy p3= new Pharmacy("Dona");
-        Pharmacy p4= new Pharmacy("Sensiblu");
+       // Pharmacy p1= new Pharmacy("Dr Max");
+       // Pharmacy p2= new Pharmacy("Catena");
+        //Pharmacy p3= new Pharmacy("Dona");
+       // Pharmacy p4= new Pharmacy("Sensiblu");
+       // List<Pharmacy> pharmacyList= List.of(p1,p2,p3,p4);
 
-        List<Pharmacy> pharmacyList= List.of(p1,p2,p3,p4);
+        List<Pharmacy> pharmacyList=pharmacyRepository.findAll();
         model.addAttribute("pharmacyList",pharmacyList);
-
         return "pharmacy";
-
-
-
     }
     @GetMapping(value="/pharmacyForm")
     public String getPharmacyForm(Model model)
@@ -38,11 +36,19 @@ public class PharmacyController {
         return "pharmacyForm";
     }
 
-    @PostMapping(value="/addPharmacy")
-    public String submitPharmacy(@ModelAttribute("pharmacy") Pharmacy pharmacy)
+    @PostMapping(value="/submitPharmacy")
+    public String submitPharmacy(@ModelAttribute("pharmacy") Pharmacy pharmacy, Model model)
     {
+        pharmacyRepository.save(pharmacy);
         System.out.println(pharmacy.toString());
-        return "pharmacyForm";
+        return "redirect:/pharmacy";
+    }
+
+    @GetMapping(value="/deleteEmployee")
+    public String deleteEmployee(@RequestParam("id") int pharmacyId)
+    {
+        pharmacyRepository.deleteById(pharmacyId);
+        return "redirect:/pharmacy";
     }
 
 }
