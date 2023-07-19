@@ -18,6 +18,7 @@
                 <th scope="col">Stock</th>
                 <th scope="col">Description</th>
                 <th scope="col">Pharmacy name</th>
+                <th scope="col">Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -28,6 +29,17 @@
                 <td th:text="${pill.stockNumber}"/>
                 <td th:text="${pill.description}"/>
                 <td th:text="${pill.pharmacy.name}"/>
+                <td>
+                    <form th:action="@{/deletePill}" th:method="get">
+                        <input type="hidden" th:name="id" th:value="${pill.id}">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+
+                    <form th:action="@{/editPill}" th:method="get">
+                        <input type="hidden" th:name="id" th:value="${pill.id}">
+                        <button type="submit" class="btn btn-primary">Edit</button>
+                    </form>
+                </td>
             </tr>
             </tbody>
         </table>

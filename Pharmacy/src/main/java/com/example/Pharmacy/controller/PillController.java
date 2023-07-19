@@ -19,12 +19,12 @@ public class PillController {
     @Autowired
     private PharmacyRepository pharmacyRepository;
 
-    @GetMapping(value="/pill")
+    @GetMapping(value="/pillOverview")
     public String description(Model model)
     {
         List<Pill> pillList = pillRepository.findAll();
         model.addAttribute("pillList", pillList);
-        return "pill";
+        return "pillOverview";
     }
     @GetMapping(value="/pillForm")
     public String getPillForm(Model model)
@@ -35,18 +35,18 @@ public class PillController {
         return "pillForm";
     }
 
-    @PostMapping(value="/addPill")
+    @PostMapping(value="/submitPill")
     public String submitPill(@ModelAttribute("pill") Pill pill, Model model)
     {
        pillRepository.save(pill);
        System.out.println(pill.getPharmacy().getName());
-       return "redirect:/pill";
+       return "redirect:/pillOverview";
     }
 
     @GetMapping(value= "/deletePill")
-    public String submitPill(@RequestParam("id") int pillId){
+    public String deletePill(@RequestParam("id") int pillId){
         pillRepository.deleteById(pillId);
-        return "redirect:/pill";
+        return "redirect:/pillOverview";
 
     }
 
@@ -55,6 +55,14 @@ public class PillController {
             public Pill findPill(@RequestParam("id") int pillId){
 
         return pillRepository.findById(pillId).get();
+    }
+    @GetMapping(value = "/editPill")
+    public String editPillForm(@RequestParam("id") int pillId, Model model) {
+        Pill pill = pillRepository.findById(pillId).orElse(null);
+        model.addAttribute("pill", pill);
+        List<Pharmacy> pharmacyList = pharmacyRepository.findAll();
+        model.addAttribute("pharmacyList", pharmacyList);
+        return "pillForm";
     }
 
 }
