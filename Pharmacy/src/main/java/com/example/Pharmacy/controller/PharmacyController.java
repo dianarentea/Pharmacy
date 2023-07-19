@@ -37,16 +37,13 @@ public class PharmacyController {
     @PostMapping(value = "/submitPharmacy")
     public String submitPharmacy(@ModelAttribute("pharmacy") Pharmacy pharmacy) {
         if (pharmacy.getId() !=0 ) {
-            // If the pharmacy has an ID, it means we are editing an existing pharmacy
             Pharmacy existingPharmacy = pharmacyRepository.findById(pharmacy.getId()).orElse(null);
             if (existingPharmacy != null) {
                 existingPharmacy.setCode(pharmacy.getCode());
                 existingPharmacy.setName(pharmacy.getName());
-                // Update other fields as needed
                 pharmacyRepository.save(existingPharmacy);
             }
         } else {
-            // If the pharmacy doesn't have an ID, it means we are adding a new pharmacy
             pharmacyRepository.save(pharmacy);
         }
         return "redirect:/pharmacyOverview";

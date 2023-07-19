@@ -38,16 +38,30 @@ public class PillController {
     @PostMapping(value="/submitPill")
     public String submitPill(@ModelAttribute("pill") Pill pill, Model model)
     {
-       pillRepository.save(pill);
-       System.out.println(pill.getPharmacy().getName());
-       return "redirect:/pillOverview";
-    }
+        if (pill.getId() != 0)
+        {
+            Pill existingPill = pillRepository.findById(pill.getId()).orElse(null);
+            if (existingPill != null) {
+                existingPill.setId(pill.getId());
+                existingPill.setName(pill.getName());
+                existingPill.setPrice(pill.getPrice());
+                existingPill.setStockNumber(pill.getStockNumber());
+                existingPill.setDescription(pill.getDescription());
+                existingPill.setPharmacy(pill.getPharmacy());
+                pillRepository.save(existingPill);
+            }
+        }
+        else {
+                pillRepository.save(pill);
+            }
+            return "redirect:/pillOverview";
+        }
+
 
     @GetMapping(value= "/deletePill")
     public String deletePill(@RequestParam("id") int pillId){
         pillRepository.deleteById(pillId);
         return "redirect:/pillOverview";
-
     }
 
     @GetMapping(value="/findPill")
