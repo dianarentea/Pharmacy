@@ -10,14 +10,26 @@ public class Pharmacy {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name = "code")
+    private String code;
     @Column(name="name")
     private String name;
 
-    public Pharmacy(String name) {
+    public Pharmacy(int id,String code,String name) {
+        this.id=id;
+        this.code= code;
         this.name = name;
     }
 
     public Pharmacy() {}
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -27,6 +39,14 @@ public class Pharmacy {
         this.name = name;
     }
 
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
 
     @Override
     public String toString() {

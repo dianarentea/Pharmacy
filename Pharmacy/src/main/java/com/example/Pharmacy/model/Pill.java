@@ -26,7 +26,8 @@ public class Pill {
     public Pill()
     {}
 
-    public Pill(String name, double price, int stockNumber, String description, Pharmacy pharmacy) {
+    public Pill(int id,String name, double price, int stockNumber, String description, Pharmacy pharmacy) {
+        this.id = id;
         this.name = name;
         this.price = price;
         this.stockNumber = stockNumber;
@@ -34,7 +35,13 @@ public class Pill {
         this.pharmacy=pharmacy;
     }
 
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

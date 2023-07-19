@@ -1,4 +1,4 @@
-package com.example.Pharmacy.repository;
+package com.example.Pharmacy.reposiytory;
 
 
 import com.example.Pharmacy.model.Pill;
