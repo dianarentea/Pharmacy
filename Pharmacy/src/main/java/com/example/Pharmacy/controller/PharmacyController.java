@@ -22,14 +22,12 @@ public class PharmacyController {
     private PharmacyRepository pharmacyRepository;
 
     @GetMapping(value = "/pharmacy")
-    public String pharmacy(Model model){
+    public String pharmacy(Model model)
+    {
       List<Pharmacy> pharmacyList = pharmacyRepository.findAll();
       model.addAttribute("pharmacyList",pharmacyList);
 
         return "pharmacy";
-
-
-
     }
     @GetMapping(value="/pharmacyForm")
     public String getPharmacyForm(Model model)
@@ -42,7 +40,7 @@ public class PharmacyController {
     public String submitPharmacy(@ModelAttribute("pharmacy") Pharmacy pharmacy)
     {
         System.out.println(pharmacy.toString());
-        return "pharmacyForm";
+        return "redirect:/pharmacy";
     }
 
 }

@@ -13,9 +13,9 @@ public class Pill {
     @Column(name="name")
     private String name;
     @Column(name="price")
-    private double price;
+    private int price;
     @Column(name="stockNumber")
-    private int stockNumber;
+    private Integer stockNumber;
     @Column(name="description")
     private String description;
 
@@ -26,8 +26,8 @@ public class Pill {
     public Pill()
     {}
 
-    public Pill(int id,String name, double price, int stockNumber, String description, Pharmacy pharmacy) {
-        this.id = id;
+    public Pill(int id, String name, int price, Integer stockNumber, String description, Pharmacy pharmacy) {
+        this.id=id;
         this.name = name;
         this.price = price;
         this.stockNumber = stockNumber;
@@ -51,19 +51,19 @@ public class Pill {
         this.name = name;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
-    public int getStockNumber() {
+    public Integer getStockNumber() {
         return stockNumber;
     }
 
-    public void setStockNumber(int stockNumber) {
+    public void setStockNumber(Integer stockNumber) {
         this.stockNumber = stockNumber;
     }
 
@@ -86,6 +86,7 @@ public class Pill {
     @Override
     public String toString() {
         return "Pill{" +
+                "id" + id + '\''+
                 "name='" + name + '\'' +
                 ", price=" + price +
                 ", stockNumber=" + stockNumber +

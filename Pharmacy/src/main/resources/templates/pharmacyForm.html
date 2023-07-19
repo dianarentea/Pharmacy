@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Add Pharmacy</title>
   <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" type="text/css">
 </head>
+
 <body>
 <div class="container-fluid">
   <div>
@@ -14,19 +16,25 @@
     <div class="row col-lg-12">
 
       <div class="form-group row">
-        <label class="col-12 col-form-label" for="cod">Code:</label>
+        <label class="col-12 col-form-label" for="code">Code:</label>
+        <div>
+          <input class="form-control" th:field="${pharmacy.code}" type="text">
+        </div>
+      </div>
+
+      <div class="form-group row">
         <label class="col-12 col-form-label" for="name">Name:</label>
         <div>
           <input class="form-control" th:field="${pharmacy.name}" type="text">
         </div>
       </div>
 
-      <!-- Alte câmpuri specifice farmaciei -->
       <div class="form-group row">
         <button class="btn btn-primary" type="submit">
           Submit
         </button>
       </div>
+
     </div>
   </form>
 </div>

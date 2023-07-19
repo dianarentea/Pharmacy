@@ -26,7 +26,7 @@ public class PillController {
     public String getPillForm(Model model)
     {
         model.addAttribute("pill", new Pill());
-        return "pill";
+        return "pillForm";
     }
 
     @PostMapping(value="/addPill")
@@ -46,6 +46,7 @@ public class PillController {
     @GetMapping(value="/findPill")
     @ResponseBody
             public Pill findPill(@RequestParam("id") int pillId){
+
         return pillRepository.findById(pillId).get();
     }
 

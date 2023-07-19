@@ -12,6 +12,7 @@
         <table class="table table-striped table-bordered">
             <thead>
             <tr>
+                <th scope="col">Id</th>
                 <th scope="col">Name</th>
                 <th scope="col">Price</th>
                 <th scope="col">Stock</th>
@@ -21,11 +22,12 @@
             </thead>
             <tbody>
             <tr th:each="pill:${pillList}">
-                <td th:text="${pill.getName()}"/>
-                <td th:text="${pill.getPrice()}"/>
-                <td th:text="${pill.getStockNumber()}"/>
-                <td th:text="${pill.getDescription()}"/>
-                <td th:text="${pill.getPharmacy().getName()}"/>
+                <td th:text="${pill.id}"/>
+                <td th:text="${pill.name}"/>
+                <td th:text="${pill.price}"/>
+                <td th:text="${pill.stockNumber}"/>
+                <td th:text="${pill.description}"/>
+                <td th:text="${pill.pharmacy.name}"/>
             </tr>
             </tbody>
         </table>

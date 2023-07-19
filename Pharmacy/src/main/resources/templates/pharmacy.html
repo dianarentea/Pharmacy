@@ -10,7 +10,7 @@
     <table class="table table-striped table-bordered">
         <thread>
            <tr>
-
+               <th scope="col">Id</th>
                <th scope="col">Code</th>
                <th scope="col">Name</th>
 
@@ -18,8 +18,9 @@
         </thread>
         <tbody>
         <tr th:each="pharmacy: ${pharmacyList}">
-            <td th:text="${pharmacy.name}"/>.
-
+            <td th:text="${pharmacy.id}"/>
+            <td th:text="${pharmacy.code}"/>
+            <td th:text="${pharmacy.name}"/>
         </tr>
         </tbody>
     </table>

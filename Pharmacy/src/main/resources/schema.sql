@@ -8,12 +8,12 @@ create table t_pharmacy
 
 create table t_pill
 (
-    id             integer auto_increment,
+    id           integer auto_increment,
     name         varchar(50),
     price        integer,
     stockNumber  integer,
     description  varchar(50),
-    name_pharmacy varchar(50),
+    id_pharmacy varchar(50),
     primary key (id),
-    foreign key (name_pharmacy) references t_pharmacy (name)
+    foreign key (id_pharmacy) references t_pharmacy (id)
 );
