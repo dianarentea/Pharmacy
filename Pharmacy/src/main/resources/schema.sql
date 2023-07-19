@@ -11,7 +11,7 @@ create table t_pill
     id           integer auto_increment,
     name         varchar(50),
     price        integer,
-    stockNumber  integer,
+    stock_number  integer,
     description  varchar(50),
     id_pharmacy varchar(50),
     primary key (id),

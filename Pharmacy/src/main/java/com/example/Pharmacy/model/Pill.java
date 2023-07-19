@@ -14,7 +14,7 @@ public class Pill {
     private String name;
     @Column(name="price")
     private int price;
-    @Column(name="stockNumber")
+    @Column(name="stock_number")
     private Integer stockNumber;
     @Column(name="description")
     private String description;
