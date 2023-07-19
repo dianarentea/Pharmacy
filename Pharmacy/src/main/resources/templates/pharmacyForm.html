@@ -13,8 +13,8 @@
     <h2>Add a new pharmacy</h2>
   </div>
   <form action="#" method="post" th:action="@{/submitPharmacy}" th:object="${pharmacy}">
+    <input type="hidden" th:field="*{id}">
     <div class="row col-lg-12">
-
       <div class="form-group row">
         <label class="col-12 col-form-label" for="code">Code:</label>
         <div>
@@ -31,7 +31,8 @@
 
       <div class="form-group row">
         <button class="btn btn-primary" type="submit">
-          Submit
+          <span th:if="${pharmacy.id}">Submit</span>
+          <span th:unless="${pharmacy.id}">Save</span>
         </button>
       </div>
 
