@@ -39,6 +39,7 @@ public class PharmacyController {
     @PostMapping(value="/addPharmacy")
     public String submitPharmacy(@ModelAttribute("pharmacy") Pharmacy pharmacy)
     {
+        pharmacyRepository.save(pharmacy);
         System.out.println(pharmacy.toString());
         return "redirect:/pharmacy";
     }

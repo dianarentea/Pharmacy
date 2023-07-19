@@ -44,10 +44,13 @@
 
                 <div class="form-group row">
                     <label class="col-12 col-form-label" for="pharmacy">Pharmacy:</label>
-                    <div>
-                        <input class="form-control" th:field="${pill.pharmacy.name}" type="text">
+                    <select name="pharmacy">
+                        <option th:each="pharmacy:${pharmacyList}" th:text="${pharmacy.name}"/>
+                    </select>
+
                     </div>
                 </div>
+            <br>
 
                 <div class="form-group row">
                     <button class="btn btn-primary" type="submit">

@@ -1,6 +1,8 @@
 package com.example.Pharmacy.controller;
 
+import com.example.Pharmacy.model.Pharmacy;
 import com.example.Pharmacy.model.Pill;
+import com.example.Pharmacy.reposiytory.PharmacyRepository;
 import com.example.Pharmacy.reposiytory.PillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,8 @@ public class PillController {
 
     @Autowired
     private PillRepository pillRepository;
+    @Autowired
+    private PharmacyRepository pharmacyRepository;
 
     @GetMapping(value="/pill")
     public String description(Model model)
@@ -26,6 +30,8 @@ public class PillController {
     public String getPillForm(Model model)
     {
         model.addAttribute("pill", new Pill());
+        List<Pharmacy> pharmacyList = pharmacyRepository.findAll();
+        model.addAttribute("pharmacyList", pharmacyList);
         return "pillForm";
     }
 
@@ -33,6 +39,7 @@ public class PillController {
     public String submitPill(@ModelAttribute("pill") Pill pill, Model model)
     {
        pillRepository.save(pill);
+       System.out.println(pill.getPharmacy().getName());
        return "redirect:/pill";
     }
 
