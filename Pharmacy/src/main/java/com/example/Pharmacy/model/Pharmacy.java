@@ -1,7 +1,13 @@
 package com.example.Pharmacy.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name="t_pharmacy")
 public class Pharmacy {
@@ -9,51 +15,10 @@ public class Pharmacy {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     @Column(name = "code")
     private String code;
     @Column(name="name")
     private String name;
 
-    public Pharmacy(int id,String code,String name) {
-        this.id=id;
-        this.code= code;
-        this.name = name;
-    }
-
-    public Pharmacy() {}
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    @Override
-    public String toString() {
-        return "Pharmacy{" +
-                "name='" + name + '\'' +
-
-                '}';
-    }
 }
 
