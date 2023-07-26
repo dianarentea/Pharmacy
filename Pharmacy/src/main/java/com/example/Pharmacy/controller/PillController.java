@@ -22,7 +22,6 @@ public class PillController {
     @Autowired
     private PillService pillService;
 
-
     @GetMapping(value="/pillOverview")
     public String pillOverview(Model model)
     {
