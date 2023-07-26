@@ -8,6 +8,7 @@ import com.example.Pharmacy.model.Pharmacy;
 import com.example.Pharmacy.reposiytory.PharmacyRepository;
 import com.example.Pharmacy.reposiytory.PillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -52,6 +53,25 @@ public class PillService {
     public Pill findPill(int pillId)
     {
         return pillRepository.findById(pillId).orElse(null);
+    }
+    public List<PillOverviewDto> sortPillsByNameAsc() {
+        List<Pill> pillList = pillRepository.findAll(Sort.by(Sort.Direction.ASC, "name"));
+        return pillMapper.getPillList(pillList);
+    }
+
+    public List<PillOverviewDto> sortPillsByNameDesc() {
+        List<Pill> pillList = pillRepository.findAll(Sort.by(Sort.Direction.DESC, "name"));
+        return pillMapper.getPillList(pillList);
+    }
+
+    public List<PillOverviewDto> sortPillsByPriceAsc() {
+        List<Pill> pillList = pillRepository.findAll(Sort.by(Sort.Direction.ASC, "price"));
+        return pillMapper.getPillList(pillList);
+    }
+
+    public List<PillOverviewDto> sortPillsByPriceDesc() {
+        List<Pill> pillList = pillRepository.findAll(Sort.by(Sort.Direction.DESC, "price"));
+        return pillMapper.getPillList(pillList);
     }
 
 }

@@ -20,9 +20,6 @@ public class OverviewController {
     @GetMapping(value = "/index")
     public String index(Model model)
     {
-        List<PillOverviewDto> pillList=pillService.getAllPills();
-        Collections.shuffle(pillList);
-        model.addAttribute("pillList", pillList);
         return "index";
     }
     @GetMapping(value = "/about")
@@ -48,6 +45,9 @@ public class OverviewController {
     @GetMapping(value = "/shop")
     public String shop(Model model)
     {
+        List<PillOverviewDto> pillList=pillService.getAllPills();
+        Collections.shuffle(pillList);
+        model.addAttribute("pillList", pillList);
         return "shop";
     }
     @GetMapping(value = "/shop-single")

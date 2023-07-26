@@ -106,32 +106,6 @@
       </div>
     </div>
 
-  <div class="site-section">
-    <div class="container">
-      <div class="row">
-        <div class="title-section text-center col-12">
-          <h2 class="text-uppercase">Popular Products</h2>
-        </div>
-      </div>
-
-      <div class="row">
-        <div th:each="pill : ${pillList}" class="col-sm-6 col-lg-4 text-center item mb-4">
-          <a th:href="@{/shop-single}"> <img th:src="@{'/bootstrap/images/' + ${pill.imageName}}" alt="Image"></a>
-          <h3 class="text-dark"><a th:href="@{/shop-single}" th:text="${pill.name}">Pill Name</a></h3>
-          <p class="price" th:text="${pill.price}"> $</p>
-        </div>
-      </div>
-      <div class="row mt-5">
-        <div class="col-12 text-center">
-          <a th:href="@{/shop}" class="btn btn-primary px-4 py-3">View All Products</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
 
   <div class="site-section bg-secondary bg-image" style="background-image: url('bootstrap/images/bg_2.jpg');">
       <div class="container">

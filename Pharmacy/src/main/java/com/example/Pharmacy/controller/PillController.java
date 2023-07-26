@@ -67,5 +67,31 @@ public class PillController {
         model.addAttribute("pharmacyList", pharmacyList);
         return "pillForm";
     }
+    @GetMapping(value = "/sortPills")
+    public String sortPills(@RequestParam("sortBy") String sortBy, Model model) {
+        List<PillOverviewDto> sortedPillList = null;
 
+        switch (sortBy) {
+            case "name_asc":
+                sortedPillList = pillService.sortPillsByNameAsc();
+                break;
+            case "name_desc":
+                sortedPillList = pillService.sortPillsByNameDesc();
+                break;
+            case "price_asc":
+                sortedPillList = pillService.sortPillsByPriceAsc();
+                break;
+            case "price_desc":
+                sortedPillList = pillService.sortPillsByPriceDesc();
+                break;
+            // Add more cases for other sorting criteria if needed.
+
+            default:
+                sortedPillList = pillService.getAllPills();
+                break;
+        }
+
+        model.addAttribute("pillList", sortedPillList);
+        return "shop";
+    }
 }
