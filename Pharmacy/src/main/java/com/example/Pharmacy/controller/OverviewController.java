@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
 
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -20,6 +21,7 @@ public class OverviewController {
     public String index(Model model)
     {
         List<PillOverviewDto> pillList=pillService.getAllPills();
+        Collections.shuffle(pillList);
         model.addAttribute("pillList", pillList);
         return "index";
     }
