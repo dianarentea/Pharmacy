@@ -50,11 +50,7 @@ public class OverviewController {
         model.addAttribute("pillList", pillList);
         return "shop";
     }
-    @GetMapping(value = "/shop-single")
-    public String shopsingle(Model model)
-    {
-        return "shop-single";
-    }
+
     @GetMapping(value = "/thankyou")
     public String thankyou(Model model)
     {
