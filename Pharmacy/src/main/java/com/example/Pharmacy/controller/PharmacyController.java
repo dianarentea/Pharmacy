@@ -18,11 +18,6 @@ public class PharmacyController {
 
     @Autowired
     private PharmacyRepository pharmacyRepository;
-    @GetMapping(value = "/index")
-    public String index(Model model)
-    {
-        return "index";
-    }
 
     @GetMapping(value = "/pharmacyOverview")
     public String pharmacy(Model model)
