@@ -27,6 +27,7 @@ public class PillMapper {
                 .price(pill.getPrice())
                 .stockNumber(pill.getStockNumber())
                 .description(pill.getDescription())
+                .imageName(pill.getImageName())
                 .pharmacy(pill.getPharmacy())
                 .build();
     }
@@ -38,6 +39,7 @@ public class PillMapper {
                 .price(pillDto.getPrice())
                 .stockNumber(pillDto.getStockNumber())
                 .description(pillDto.getDescription())
+                .imageName(pillDto.getImageName())
                 .pharmacy(pillDto.getPharmacy())
                 .build();
         return pill;

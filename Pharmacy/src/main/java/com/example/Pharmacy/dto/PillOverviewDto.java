@@ -18,5 +18,6 @@ public class PillOverviewDto {
     private int price;
     private int stockNumber;
     private String description;
+    private String imageName;
     private Pharmacy pharmacy;
 }

@@ -23,6 +23,8 @@ public class Pill {
     private int stockNumber;
     @Column(name="description")
     private String description;
+    @Column(name="imageName")
+    private String imageName;
     @ManyToOne
     @JoinColumn(name="id_pharmacy")
     private Pharmacy pharmacy;
