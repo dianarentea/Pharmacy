@@ -75,6 +75,14 @@ public class PillController {
         List<Pharmacy> pharmacyList = pharmacyRepository.findAll();
         return "shop-single";
     }
+    @GetMapping(value = "/cart")
+    public String cart(@RequestParam("id") int pillId, Model model)
+    {
+        Pill pill =pillService.findPill(pillId);
+        model.addAttribute("pill", pill);
+        List<Pharmacy> pharmacyList = pharmacyRepository.findAll();
+        return "cart";
+    }
     @GetMapping(value = "/sortPills")
     public String sortPills(@RequestParam("sortBy") String sortBy, Model model) {
         List<PillOverviewDto> sortedPillList = null;

@@ -32,11 +32,7 @@ public class OverviewController {
     {
         return "login";
     }
-    @GetMapping(value = "/cart")
-    public String cart(Model model)
-    {
-        return "cart";
-    }
+
     @GetMapping(value = "/checkout")
     public String checkout(Model model)
     {
