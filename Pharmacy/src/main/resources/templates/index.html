@@ -40,9 +40,14 @@
 
       <div class="container">
         <div class="d-flex align-items-center justify-content-between">
-          <div class="logo">
-            <div class="site-logo">
-              <a th:href="@{/index}" class="js-logo-clone">Pharma</a>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              More
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" th:href="@{/pillOverview}">Pill Management</a>
+              <a class="dropdown-item" th:href="@{/pharmacyOverview}">Pharmacy Management</a>
+
             </div>
           </div>
           <div class="main-nav d-none d-lg-block">
@@ -105,6 +110,8 @@
         </div>
       </div>
     </div>
+
+
 
 
   <div class="site-section bg-secondary bg-image" style="background-image: url('bootstrap/images/bg_2.jpg');">
