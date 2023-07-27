@@ -92,7 +92,6 @@ public class PillController {
             case "price_desc":
                 sortedPillList = pillService.sortPillsByPriceDesc();
                 break;
-            // Add more cases for other sorting criteria if needed.
 
             default:
                 sortedPillList = pillService.getAllPills();
