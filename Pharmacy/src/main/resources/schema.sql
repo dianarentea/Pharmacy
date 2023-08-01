@@ -13,7 +13,7 @@ create table t_pill
     price        integer,
     stock_number  integer,
     description  varchar(50),
-    imageName varchar(50),
+    image_name varchar(50),
     id_pharmacy varchar(50),
     primary key (id),
     foreign key (id_pharmacy) references t_pharmacy (id)

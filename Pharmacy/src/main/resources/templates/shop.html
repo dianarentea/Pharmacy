@@ -117,7 +117,7 @@
         <div class="row">
           <div th:each="pill : ${pillList}" class="col-sm-6 col-lg-4 text-center item mb-4">
 
-            <a > <img th:src="@{'/bootstrap/images/' + pill.imageName}" alt="Image"></a>
+            <a > <img th:src="@{'/bootstrap/images/' + ${pill.imageName}}" alt="Image"></a>
 
             <form th:action="@{/shop-single}" th:method="get">
               <input type="hidden" th:name="id" th:value="${pill.id}">
