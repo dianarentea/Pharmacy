@@ -27,11 +27,6 @@ public class OverviewController {
     {
         return "about";
     }
-    @GetMapping(value = "/login")
-    public String login(Model model)
-    {
-        return "login";
-    }
 
     @GetMapping(value = "/checkout")
     public String checkout(Model model)

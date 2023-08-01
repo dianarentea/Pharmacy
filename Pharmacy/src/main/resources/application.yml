@@ -13,8 +13,3 @@ spring:
   h2:
     console:
       enabled: true
-  security:
-    user:
-      name: project
-      password: 1234
-      roles: USER
