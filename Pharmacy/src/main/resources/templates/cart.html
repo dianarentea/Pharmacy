@@ -107,7 +107,7 @@
                   <tr>
                     <th class="product-thumbnail">Image</th>
                     <th class="product-name">Product</th>
-                    <th class="product-price">Price</th>
+                    <th class="product-price">Price/Buc</th>
                     <th class="product-quantity">Quantity</th>
                     <th class="product-total">Total</th>
                     <th class="product-remove">Remove</th>
@@ -122,7 +122,7 @@
                       <h2 class="text-black"> <a th:text="${pill.name}"/></h2>
                     </td>
                     <td>
-                      <h2 class="text-black"> <a th:text="${pill.price}"/></h2>
+                       <a th:text="${pill.price}"/>
                     </td>
                     <td>
                       <div class="input-group mb-3" style="max-width: 120px;">
@@ -137,7 +137,7 @@
                       </div>
     
                     </td>
-                    <td>$49.00</td>
+                    <td>$<a th:text="${pill.price}"/></td>
                     <td><a href="#" class="btn btn-primary height-auto btn-sm">X</a></td>
                   </tr>
     
