@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
+import org.springframework.security.core.Authentication;
+
 
 import java.util.Collections;
 import java.util.List;
@@ -18,8 +20,10 @@ public class OverviewController {
     @Autowired
     private PillService pillService;
     @GetMapping(value = "/index")
-    public String index(Model model)
+    public String index(Model model, Authentication authentication )
     {
+        authentication.getPrincipal();
+        addUserToModel(model, authentication);
         return "index";
     }
     @GetMapping(value = "/about")
@@ -48,9 +52,17 @@ public class OverviewController {
     }
 
     @GetMapping(value = "/thankyou")
+
     public String thankyou(Model model)
     {
         return "thankyou";
     }
+    protected void addUserToModel(Model model, Authentication authentication) {
+        var roles = authentication.getAuthorities().stream()
+                .map(String::valueOf)
+                .toList();
 
+        model.addAttribute("userName", authentication.getName());
+        model.addAttribute("isAdmin", roles.contains("ROLE_ADMIN"));
+    }
 }

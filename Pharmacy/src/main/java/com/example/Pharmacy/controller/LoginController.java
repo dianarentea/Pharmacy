@@ -1,5 +1,4 @@
 package com.example.Pharmacy.controller;
-
 import com.example.Pharmacy.dto.UserDto;
 import com.example.Pharmacy.model.User;
 import com.example.Pharmacy.service.UserService;
@@ -62,12 +61,5 @@ public class LoginController {
         }
         return "Logged out";
     }
-    protected void addUserToModel(Model model, Authentication authentication) {
-        var roles = authentication.getAuthorities().stream()
-                .map(String::valueOf)
-                .toList();
 
-        model.addAttribute("userName", authentication.getName());
-        model.addAttribute("isAdmin", roles.contains("ROLE_ADMIN"));
-    }
 }

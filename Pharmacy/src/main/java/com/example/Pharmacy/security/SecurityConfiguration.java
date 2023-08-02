@@ -31,7 +31,7 @@ public class SecurityConfiguration {
                         .requestMatchers("/shop").hasAnyRole("USER", "ADMIN")
                         .requestMatchers("/shop-single").hasAnyRole("USER", "ADMIN")
                         .requestMatchers("/cart").hasAnyRole("USER", "ADMIN")
-                        .requestMatchers("/pharmacyOverview").hasAnyRole("USER", "ADMIN")
+                        .requestMatchers("/pharmacyOverview").hasAnyRole( "ADMIN")
                         .requestMatchers("/pharmacyForm").hasAnyRole("ADMIN")
                         .requestMatchers("/pillOverview").hasAnyRole("ADMIN")
                         .requestMatchers("/pillForm").hasAnyRole("ADMIN")
