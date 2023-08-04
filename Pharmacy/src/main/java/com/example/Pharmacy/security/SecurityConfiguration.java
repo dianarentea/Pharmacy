@@ -24,6 +24,7 @@ public class SecurityConfiguration {
                         .requestMatchers("/bootstrap/**").permitAll()
                         .requestMatchers(toH2Console()).permitAll()
                         .requestMatchers("/login").permitAll()
+                        .requestMatchers("/forgot").permitAll()
                         .requestMatchers("/logout").permitAll()
                         .requestMatchers("/register/**").permitAll()
                         .requestMatchers("/index").hasAnyRole("USER", "ADMIN")

@@ -1,9 +1,11 @@
 package com.example.Pharmacy.controller;
 import com.example.Pharmacy.dto.UserDto;
 import com.example.Pharmacy.model.User;
+import com.example.Pharmacy.reposiytory.UserRepository;
 import com.example.Pharmacy.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -14,10 +16,12 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+
 @Controller
 public class LoginController {
     @Autowired
     private UserService userService;
+
 
     @RequestMapping("/login")
     public String loginForm() {
@@ -61,5 +65,16 @@ public class LoginController {
         }
         return "Logged out";
     }
+
+    @GetMapping("/forgot")
+    public String loadForgotPassword(){
+        return "forgot";
+    }
+    @GetMapping("/reset")
+    public String loadResetPassword(){
+        return "reset";
+    }
+    
+
 
 }

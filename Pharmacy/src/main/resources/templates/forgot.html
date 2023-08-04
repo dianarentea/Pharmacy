@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" type="text/css">
+    <title>Login</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-6 mx-auto">
+            <h1>Forgot password?</h1>
+            <p>You can reset your password here.</p>
+            <div th:if="${param.error}">
+                <div class="alert alert-danger">Invalid Email or Password</div>
+            </div>
+            <form
+                    class="form-horizontal"
+                    method="post"
+                    role="form"
+                    th:action="@{/forgot}"
+            >
+
+                <div class="mb-3">
+                    <label class="form-label" >Email adress</label>
+                    <input class="form-control" id="username" name="username" placeholder="Enter email address"
+                           type="email">
+                </div>
+
+                <div class="mb-3">
+                    <button class="btn btn-primary mb-3" type="submit">Reset Password</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/bootstrap/js/bootstrap.min.js}"/>
+
+</body>
+</html>

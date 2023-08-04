@@ -2,12 +2,15 @@ package com.example.Pharmacy.service;
 
 import com.example.Pharmacy.model.User;
 import com.example.Pharmacy.reposiytory.UserRepository;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.stream.Collectors;
 
@@ -34,4 +37,6 @@ public class CustomUserDetailsService implements UserDetailsService {
                 .collect(Collectors.toList());
         return new org.springframework.security.core.userdetails.User(email, password, roles);
     }
+
+
 }
