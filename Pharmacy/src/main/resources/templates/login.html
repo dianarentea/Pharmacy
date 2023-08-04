@@ -7,7 +7,26 @@
   <title>Login</title>
 </head>
 <body>
+<script>const rmCheck = document.getElementById("rememberMe"),
+    emailInput = document.getElementById("email");
 
+if (localStorage.checkbox && localStorage.checkbox !== "") {
+  rmCheck.setAttribute("checked", "checked");
+  emailInput.value = localStorage.username;
+} else {
+  rmCheck.removeAttribute("checked");
+  emailInput.value = "";
+}
+
+function lsRememberMe() {
+  if (rmCheck.checked && emailInput.value !== "") {
+    localStorage.username = emailInput.value;
+    localStorage.checkbox = rmCheck.value;
+  } else {
+    localStorage.username = "";
+    localStorage.checkbox = "";
+  }
+}</script>
 <div class="container">
   <div class="row mt-5">
     <div class="col-6 mx-auto">
@@ -16,7 +35,7 @@
         <div class="alert alert-danger">Invalid Email or Password</div>
       </div>
       <div th:if="${param.logout}">
-        <div class="alert alert-success">You have been logged out</div>
+        <div class="alert alert-success">You have been logged out.</div>
       </div>
       <form
               class="form-horizontal"
@@ -35,8 +54,10 @@
                  type="password">
         </div>
         <div class="mb-3">
-        <input type="checkbox" checked="checked"> Remember me <br>
-        Forgot <a href="/forgot"> password? </a>
+          <input type="checkbox" value="lsRememberMe" id="rememberMe"> <label for="rememberMe">Remember me</label>
+        </div>
+        <div>
+          Forgot <a href="/forgot"> password? </a>
         </div>
         <div class="mb-3">
           <button class="btn btn-primary mb-3" type="submit">Login</button>

@@ -57,13 +57,12 @@ public class LoginController {
     }
 
     @GetMapping(value = "/logout")
-    @ResponseBody
     public String logout(HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth != null) {
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
-        return "Logged out";
+        return "redirect:/login?message=loggedOut";
     }
 
     @GetMapping("/forgot")
