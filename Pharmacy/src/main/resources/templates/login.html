@@ -7,6 +7,7 @@
   <title>Login</title>
 </head>
 <body>
+
 <div class="container">
   <div class="row mt-5">
     <div class="col-6 mx-auto">
@@ -34,9 +35,14 @@
                  type="password">
         </div>
         <div class="mb-3">
+        <input type="checkbox" checked="checked"> Remember me <br>
+        Forgot <a href="/forgot"> password? </a>
+        </div>
+        <div class="mb-3">
           <button class="btn btn-primary mb-3" type="submit">Login</button>
           or <a class="link-primary" th:href="@{/register}">Register</a>
         </div>
+
       </form>
     </div>
   </div>

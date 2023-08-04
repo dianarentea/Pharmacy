@@ -7,6 +7,15 @@
   <title>Registration</title>
 </head>
 <body>
+<script>
+function myFunction() {
+  var x = document.getElementById("password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}</script>
 <div class="container">
   <div class="row mt-5">
     <div class="col-6 mx-auto">
@@ -36,10 +45,10 @@
         </div>
         <div class="mb-3">
           <label class="col-sm-2 col-form-label" for="password">Password</label>
-          <input class="form-control" id="password" name="password" type="password">
-          <p class="text-danger" th:errors="*{password}"
-             th:if="${#fields.hasErrors('password')}"></p>
+          <input class="form-control" id="password" name="password" type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" title="Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, and one digit." required>
+          <p class="text-danger" th:errors="*{password}" th:if="${#fields.hasErrors('password')}"></p>
         </div>
+        <input type="checkbox" onclick="myFunction()">Show Password
         <div class="mb-3">
           <label class="col-sm-2 col-form-label" for="role">Role</label>
           <select class="selectpicker form-control" id="role" name="role">
@@ -56,6 +65,7 @@
     </div>
   </div>
 </div>
+
 
 <script th:src="@{/bootstrap/js/bootstrap.min.js}"/>
 
