@@ -39,9 +39,11 @@
                 <td th:text="${pill.price}"/>
                 <td th:text="${pill.stockNumber}"/>
                 <td th:text="${pill.description}"/>
+
                 <td>
-                    <img th:src="@{'/bootstrap/images/' + ${pill.imageName}}" height="60px">
+                    <img th:src="@{${pill.imageName != null and pill.imageName != ''} ? '/bootstrap/images/' + ${pill.imageName} : '/bootstrap/images/default.jpeg'}" height="60px">
                 </td>
+
                 <td th:text="${pill.pharmacy.name}"/>
                 <td>
                     <form th:action="@{/deletePill}" th:method="get">

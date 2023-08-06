@@ -116,7 +116,7 @@
                 <tbody>
                   <tr>
                     <td class="product-thumbnail">
-                      <img th:src="@{'/bootstrap/images/' + ${pill.imageName}}" alt="Image" class="img-fluid">
+                      <img th:src="@{${pill.imageName != null and pill.imageName != ''} ? '/bootstrap/images/' + ${pill.imageName} : '/bootstrap/images/default.jpeg'}" alt="Image" class="img-fluid">
                     </td>
                     <td class="product-name" >
                       <h2 class="text-black"> <a th:text="${pill.name}"/></h2>

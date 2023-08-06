@@ -47,7 +47,7 @@ public class LoginController {
         }
 
         userService.saveUser(userDto);
-        return "redirect:/register?success";
+        return "redirect:/login";
     }
 
     @GetMapping("/access-denied")

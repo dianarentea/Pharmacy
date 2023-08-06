@@ -103,7 +103,8 @@
         <div class="row">
           <div class="col-md-5 mr-auto">
             <div class="border text-center">
-              <img th:src="@{'/bootstrap/images/' + ${pill.imageName}}" alt="Image" class="img-fluid p-5">
+              <img th:src="@{${pill.imageName != null and pill.imageName != ''} ? '/bootstrap/images/' + ${pill.imageName} : '/bootstrap/images/default.jpeg'}" alt="Image" class="img-fluid p-5">
+
             </div>
           </div>
           <div class="col-md-6">
